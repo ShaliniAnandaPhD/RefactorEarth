@@ -1,9 +1,6 @@
 # RefactorEarth
 Transforming code, one function at a time, to reduce digital carbon footprints and create a more sustainable digital world.
 
-
-# RefactorEarth: Leveraging AI for Sustainable Code Optimization
-
 In the realm of software development, efficiency has long been a primary concern. However, with growing awareness of the environmental impact of computing, a new paradigm is emerging: sustainable coding. RefactorEarth stands at the forefront of this movement, offering developers a powerful tool to analyze and optimize their code for both performance and environmental sustainability.
 
 ## The Initial Analysis
