@@ -1,0 +1,6 @@
+def unoptimized_list_comprehensions(data):
+    result = [x * 2 for x in data if x % 2 == 0]
+    return result
+
+data = [i for i in range(100)]
+unoptimized_list_comprehensions(data)
