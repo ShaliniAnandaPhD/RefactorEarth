@@ -1,0 +1,6 @@
+def heavy_io_operations(file_path):
+    with open(file_path, 'w') as f:
+        for i in range(100000):
+            f.write(f'{i}: {i**2}\n')
+
+heavy_io_operations('output.txt')
