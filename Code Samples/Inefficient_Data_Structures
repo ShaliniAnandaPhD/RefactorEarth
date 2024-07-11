@@ -1,0 +1,9 @@
+def inefficient_data_structure(data):
+    result = []
+    for item in data:
+        if item not in result:
+            result.append(item)
+    return result
+
+data = [i % 10 for i in range(100)]
+inefficient_data_structure(data)
