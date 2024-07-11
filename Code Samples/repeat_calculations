@@ -1,0 +1,9 @@
+def repeated_calculations(data):
+    result = []
+    for item in data:
+        val = sum(data) * item
+        result.append(val)
+    return result
+
+data = [i for i in range(100)]
+repeated_calculations(data)
