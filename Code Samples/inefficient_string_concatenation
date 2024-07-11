@@ -1,0 +1,8 @@
+def inefficient_string_concatenation(data):
+    result = ""
+    for item in data:
+        result += str(item) + ", "
+    return result
+
+data = [i for i in range(100)]
+inefficient_string_concatenation(data)
