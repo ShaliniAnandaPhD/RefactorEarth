@@ -1,0 +1,13 @@
+def inefficient_sorting(data):
+    sorted_data = []
+    while data:
+        minimum = data[0]
+        for x in data:
+            if x < minimum:
+                minimum = x
+        data.remove(minimum)
+        sorted_data.append(minimum)
+    return sorted_data
+
+data = [i for i in range(100, 0, -1)]
+inefficient_sorting(data)
