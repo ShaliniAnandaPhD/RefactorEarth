@@ -116,7 +116,6 @@ def configure_sidebar():
     if st.sidebar.button("Download Logs"):
         download_logs()
 
-# ... [rest of the display functions remain the same] ...
 
 def analyze_code(code):
     try:
@@ -157,7 +156,6 @@ def get_optimization_suggestions(code):
     suggestions = code_generator(prompt, max_length=1000, num_return_sequences=1)[0]['generated_text']
     return suggestions.split('\n') if suggestions else ["No suggestions available"]
 
-# ... [rest of the functions remain the same] ...
 
 if __name__ == "__main__":
     main()
