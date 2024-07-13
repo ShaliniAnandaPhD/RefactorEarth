@@ -1,5 +1,8 @@
+codecarbon
+PyYAML
 torch==2.0.0
 transformers==4.30.0
 datasets==2.3.0
 PyGithub==1.59.0
 python-dotenv==1.0.0
+
