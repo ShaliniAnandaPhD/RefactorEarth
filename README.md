@@ -1,39 +1,31 @@
 # RefactorEarth
 
-RefactorEarth is a project aimed at analyzing and improving the efficiency of Python code by identifying memory-intensive operations, redundant computations, and suboptimal data structures. This tool leverages state-of-the-art machine learning models to assist developers in writing more sustainable and performant code.
+RefactorEarth is a project aimed at analyzing and improving the efficiency of Python code by identifying memory-intensive operations, redundant computations, and suboptimal data structures. This tool leverages state-of-the-art machine learning models and sustainability tracking tools like CodeCarbon to assist developers in writing more sustainable and performant code.
 
 ## Objective
+
 Optimize Python code for reduced energy consumption and improved sustainability metrics.
 
 ## Methodology
 
-1. **Repository Analysis:**
-   - Clone target repo, identify Python files.
+### Repository Analysis
+- **Clone target repo:** Identify Python files in the repository.
+- **Initial Metrics Calculation:** Measure energy consumption, carbon footprint, and sustainability score using CodeCarbon.
 
-2. **Initial Metrics Calculation:**
-   - Energy consumption, carbon footprint, sustainability score.
-
-3. **AI-Powered Refactoring:**
-   - **Base Model:** Microsoft's CodeBERT.
-   - **Fine-tuning:** Custom dataset of energy-efficient Python code.
-   - **Optimization Focus:** Loop efficiency, memory usage, I/O operations.
-   - **Personalization:** Incorporation of repository owner's GitHub data.
-   - **Process:** Iterative passes for algorithm and low-level optimizations.
+### AI-Powered Refactoring
+- **Base Model:** Microsoft's CodeBERT.
+- **Fine-tuning:** Custom dataset of energy-efficient Python code.
+- **Optimization Focus:** Loop efficiency, memory usage, I/O operations.
+- **Personalization:** Incorporation of repository owner's GitHub data.
+- **Process:** Iterative passes for algorithm and low-level optimizations.
 
 ## Key Performance Indicators (KPIs)
-
-- **Energy Consumption (joules)**
-- **Carbon Footprint (gCO2)**
-- **Sustainability Score (0-100)**
-- **CPU Time (seconds)**
-- **Equivalent Smartphone Charge (%)**
-- **LED Bulb Power Time (seconds, 10W bulb)**
-- **Code Efficiency Metrics**
-  - Loop usage efficiency
-  - Redundant computation minimization
-  - Generator utilization for large datasets
-  - I/O operation efficiency
-  - Data structure appropriateness
+- **Energy Consumption:** Measured in joules (J) using CodeCarbon.
+- **Carbon Footprint:** Measured in grams of CO2 equivalent (gCO2) using CodeCarbon.
+- **Sustainability Score:** Scored from 0 to 100.
+- **CPU Time:** Measured in seconds.
+- **Equivalent Smartphone Charge:** Measured in percentage (%).
+- **LED Bulb Power Time:** Measured in seconds for a 10W bulb.
 
 ## Results
 
@@ -51,19 +43,20 @@ Optimize Python code for reduced energy consumption and improved sustainability 
 - **Sustainability Score:** 80.0/100 (+93.2%)
 - **CPU Time:** 0.00020 s (-66.1%)
 - **Smartphone Charge:** 0.00044% (-65.6%)
-- **LED Bulb Time:** Not provided (proportional decrease expected)
+- **LED Bulb Time:** Proportional decrease expected
 
 ### Code Structure Changes
 - **Lines of Code:** 100 → 1
 - **Cyclomatic Complexity:** 15 → 0
 - **Function Count:** 3 → 0
-- **Note:** Extreme reductions in code structure metrics require further investigation for potential analysis artifacts.
+- Note: Extreme reductions in code structure metrics require further investigation for potential analysis artifacts.
 
 ## Technical Stack
 - **AI Model:** Fine-tuned CodeBERT
 - **Language:** Python
 - **Version Control:** Git
 - **Repository Analysis:** GitHub API
+- **Sustainability Tracking:** CodeCarbon
 - **Potential Deployment:** Docker containerization
 
 ## Installation
@@ -76,58 +69,65 @@ Ensure you have the following installed:
 ### Environment Variables
 1. Create a `.env` file in the root directory.
 2. Add your GitHub token to the `.env` file:
-   ```
+   ```plaintext
    GITHUB_TOKEN=your_github_token
    ```
 3. Load environment variables:
-   ```sh
+   ```bash
    export $(cat .env | xargs)
    ```
 
 ### Dependencies
 Install the required dependencies:
-```sh
-pip install torch transformers datasets PyGithub
+```bash
+pip install -r requirements.txt
+```
+
+### `requirements.txt` 
+```txt
+codecarbon
+PyYAML
+torch==2.0.0
+transformers==4.30.0
+datasets==2.3.0
+PyGithub==1.59.0
+python-dotenv==1.0.0
 ```
 
 ## Detailed Steps
 
-### Step-by-Step Guide to Using CodeBERT and Roberta
+### Set Up the Environment
+1. Make sure Python 3.8+ is installed.
+2. Install the required Python packages:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-1. **Set Up the Environment:**
-   - Make sure Python 3.8+ is installed.
-   - Install the required Python packages:
-     ```sh
-     pip install torch transformers datasets PyGithub
-     ```
+### Configure GitHub Access
+1. Create a `.env` file in the project root directory.
+2. Add your GitHub token to the `.env` file:
+   ```plaintext
+   GITHUB_TOKEN=your_github_token
+   ```
+3. Load the environment variables:
+   ```bash
+   export $(cat .env | xargs)
+   ```
 
-2. **Configure GitHub Access:**
-   - Create a `.env` file in the project root directory.
-   - Add your GitHub token to the `.env` file:
-     ```
-     GITHUB_TOKEN=your_github_token
-     ```
-   - Load the environment variables:
-     ```sh
-     export $(cat .env | xargs)
-     ```
+### Run the Training Script
+The training script `trainer.py` fetches the `train.py` file from a GitHub repository, tokenizes it using CodeBERT, and trains a model.
+To run the training script, use:
+```bash
+python trainer.py
+```
 
-3. **Run the Training Script:**
-   - The training script `trainer.py` fetches the `train.py` file from a GitHub repository, tokenizes it using CodeBERT, and trains a model.
-   - To run the training script, use:
-     ```sh
-     python trainer.py
-     ```
+### Explanation of Key Components
+- **RobertaTokenizer and RobertaForMaskedLM:** Components from the transformers library used for tokenizing text and training language models.
+- **TrainingArguments and Trainer:** Used to set up and run the training process for the model.
+- **CodeCarbon EmissionsTracker:** Used to measure energy consumption and carbon footprint.
 
-### Explanation of Key Components:
-
-- **RobertaTokenizer and RobertaForMaskedLM:** These are components from the `transformers` library used for tokenizing text and training language models.
-- **TrainingArguments and Trainer:** These are used to set up and run the training process for the model.
-
-### Example Script:
-
+### Example Script
 The following is an example script that the `trainer.py` runs. It fetches the content from GitHub, processes it, and trains a model:
-
 ```python
 import os
 import torch
@@ -193,7 +193,7 @@ try:
     # Save the fine-tuned model
     model.save_pretrained("./fine_tuned_codebert")
     tokenizer.save_pretrained("./fine_tuned_codebert")
-    
+
     print("Training completed successfully.")
 
 except Exception as e:
@@ -203,7 +203,6 @@ except Exception as e:
 ## Contributing
 
 We welcome contributions! Here’s how you can help:
-
 1. Fork the repository.
 2. Create a new branch (`git checkout -b feature-branch`).
 3. Make your changes.
@@ -213,10 +212,8 @@ We welcome contributions! Here’s how you can help:
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+This project is licensed under the MIT License. See the LICENSE file for more details.
 
 ## Conclusion
-RefactorEarth demonstrates significant potential for AI-driven code optimization, achieving substantial improvements in energy efficiency and sustainability metrics. The integration of personalized coding patterns and energy-focused optimizations presents a novel approach to sustainable software development.
 
-
-
+RefactorEarth demonstrates significant potential for AI-driven code optimization, achieving substantial improvements in energy efficiency and sustainability metrics. The integration of personalized coding patterns and energy-focused optimizations presents a novel approach to sustainable software development. 
