@@ -1,0 +1,87 @@
+import random
+import time
+
+# Function to generate a large list of random numbers
+def generate_large_list(size):
+    return [random.randint(1, 1000) for _ in range(size)]
+
+# Function to perform an inefficient sort
+def inefficient_sort(data):
+    for i in range(len(data)):
+        for j in range(len(data)):
+            if data[i] < data[j]:
+                data[i], data[j] = data[j], data[i]
+    return data
+
+# Function to perform redundant computations
+def redundant_computations(data):
+    result = []
+    for i in range(len(data)):
+        for j in range(len(data)):
+            if data[i] * data[j] % 3 == 0:
+                result.append(data[i] * data[j])
+    return result
+
+# Function to simulate heavy I/O operations
+def heavy_io_operations(data, filename):
+    with open(filename, 'w') as f:
+        for value in data:
+            f.write(f"{value}\n")
+            time.sleep(0.01)  # Simulate delay
+
+# Function to generate a large list of strings
+def generate_large_string_list(size):
+    return [f"string_{i}" for i in range(size)]
+
+# Function to perform inefficient string concatenation
+def inefficient_string_concatenation(strings):
+    result = ""
+    for string in strings:
+        result += string + " "
+    return result
+
+# Function to perform memory-intensive operations
+def memory_intensive_operations(data):
+    matrix = []
+    for i in range(len(data)):
+        row = []
+        for j in range(len(data)):
+            row.append(data[i] * data[j])
+        matrix.append(row)
+    return matrix
+
+# Main function to execute the inefficient code
+def main():
+    large_list_size = 10000  # Size of the large list
+    string_list_size = 10000  # Size of the large string list
+
+    # Generate large list of numbers
+    large_list = generate_large_list(large_list_size)
+
+    # Perform inefficient sort
+    sorted_list = inefficient_sort(large_list)
+
+    # Perform redundant computations
+    redundant_result = redundant_computations(sorted_list)
+
+    # Perform heavy I/O operations
+    heavy_io_operations(redundant_result, "output.txt")
+
+    # Generate large list of strings
+    large_string_list = generate_large_string_list(string_list_size)
+
+    # Perform inefficient string concatenation
+    concatenated_string = inefficient_string_concatenation(large_string_list)
+
+    # Perform memory-intensive operations
+    matrix = memory_intensive_operations(large_list)
+
+    # Print the results (commented out to avoid large output)
+    # print(sorted_list)
+    # print(redundant_result)
+    # print(concatenated_string)
+    # print(matrix)
+
+# Execute the main function
+if __name__ == "__main__":
+    main()
