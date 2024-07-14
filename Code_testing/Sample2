@@ -1,0 +1,63 @@
+import time
+import random
+
+# Function to generate a large random matrix
+def generate_large_matrix(size):
+    matrix = []
+    for _ in range(size):
+        row = [random.random() for _ in range(size)]
+        matrix.append(row)
+    return matrix
+
+# Function to perform matrix multiplication
+def matrix_multiplication(matrix_a, matrix_b):
+    size = len(matrix_a)
+    result = [[0 for _ in range(size)] for _ in range(size)]
+    for i in range(size):
+        for j in range(size):
+            for k in range(size):
+                result[i][j] += matrix_a[i][k] * matrix_b[k][j]
+    return result
+
+# Function to simulate heavy I/O operations
+def simulate_heavy_io(file_name, content, iterations):
+    for _ in range(iterations):
+        with open(file_name, 'a') as f:
+            f.write(content)
+
+# Function to perform a large number of random operations
+def perform_random_operations(size, iterations):
+    data = [random.random() for _ in range(size)]
+    for _ in range(iterations):
+        index = random.randint(0, size - 1)
+        data[index] = (data[index] * random.random() + random.random()) / random.random()
+
+# Main function to coordinate all tasks
+def main():
+    # Generate large matrices
+    matrix_size = 300
+    print("Generating large matrices...")
+    matrix_a = generate_large_matrix(matrix_size)
+    matrix_b = generate_large_matrix(matrix_size)
+
+    # Perform matrix multiplication
+    print("Performing matrix multiplication...")
+    result_matrix = matrix_multiplication(matrix_a, matrix_b)
+
+    # Simulate heavy I/O operations
+    print("Simulating heavy I/O operations...")
+    io_file_name = "heavy_io.txt"
+    io_content = "This is a sample content for heavy I/O operation.\n" * 100
+    io_iterations = 1000
+    simulate_heavy_io(io_file_name, io_content, io_iterations)
+
+    # Perform random operations
+    print("Performing random operations...")
+    random_operations_size = 1000000
+    random_operations_iterations = 1000
+    perform_random_operations(random_operations_size, random_operations_iterations)
+
+    print("All tasks completed.")
+
+if __name__ == "__main__":
+    main()
