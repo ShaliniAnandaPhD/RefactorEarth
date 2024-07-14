@@ -1,0 +1,80 @@
+import random
+import string
+import time
+
+# Generate a large list of random strings
+def generate_random_strings(n, length):
+    random_strings = []
+    for _ in range(n):
+        random_string = ''.join(random.choices(string.ascii_letters + string.digits, k=length))
+        random_strings.append(random_string)
+    return random_strings
+
+# Inefficient sorting function
+def inefficient_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        for j in range(0, n-i-1):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+
+# Function with redundant computations
+def redundant_computations(arr):
+    result = []
+    for i in range(len(arr)):
+        for j in range(len(arr)):
+            for k in range(len(arr)):
+                result.append(arr[i] + arr[j] + arr[k])
+    return result
+
+# Function with heavy I/O operations
+def heavy_io_operations(filename, data):
+    for _ in range(1000):
+        with open(filename, 'a') as f:
+            for line in data:
+                f.write(line + '\n')
+
+# Function with nested loops and memory-intensive operations
+def nested_loops_memory_intensive(arr):
+    result = []
+    for i in range(len(arr)):
+        for j in range(len(arr)):
+            for k in range(len(arr)):
+                for l in range(len(arr)):
+                    result.append(arr[i] + arr[j] + arr[k] + arr[l])
+    return result
+
+# Main function to tie everything together
+def main():
+    n = 1000
+    length = 10
+
+    # Step 1: Generate a large list of random strings
+    random_strings = generate_random_strings(n, length)
+
+    # Step 2: Inefficient sorting
+    start_time = time.time()
+    inefficient_sort(random_strings)
+    end_time = time.time()
+    print(f"Time taken for inefficient sorting: {end_time - start_time:.2f} seconds")
+
+    # Step 3: Redundant computations
+    start_time = time.time()
+    redundant_results = redundant_computations(random_strings)
+    end_time = time.time()
+    print(f"Time taken for redundant computations: {end_time - start_time:.2f} seconds")
+
+    # Step 4: Heavy I/O operations
+    start_time = time.time()
+    heavy_io_operations('output.txt', random_strings)
+    end_time = time.time()
+    print(f"Time taken for heavy I/O operations: {end_time - start_time:.2f} seconds")
+
+    # Step 5: Nested loops and memory-intensive operations
+    start_time = time.time()
+    memory_intensive_results = nested_loops_memory_intensive(random_strings)
+    end_time = time.time()
+    print(f"Time taken for nested loops and memory-intensive operations: {end_time - start_time:.2f} seconds")
+
+if __name__ == "__main__":
+    main()
