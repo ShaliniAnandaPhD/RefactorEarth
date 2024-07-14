@@ -1,0 +1,66 @@
+import os
+import random
+
+def generate_large_list(size):
+    return [random.randint(1, 1000) for _ in range(size)]
+
+def write_large_file(filename, size):
+    with open(filename, 'w') as f:
+        for _ in range(size):
+            f.write(f"{random.randint(1, 1000)}\n")
+
+def read_large_file(filename):
+    with open(filename, 'r') as f:
+        return [int(line.strip()) for line in f]
+
+def redundant_computations(numbers):
+    result = 0
+    for number in numbers:
+        for i in range(1000):
+            result += (number * i) % 100
+    return result
+
+def inefficient_sorting(numbers):
+    return sorted(numbers, reverse=True)
+
+def memory_intensive_operations(numbers):
+    squared = [number ** 2 for number in numbers]
+    cubed = [number ** 3 for number in squared]
+    return cubed
+
+def nested_loops_operations(numbers):
+    result = 0
+    for i in range(len(numbers)):
+        for j in range(i, len(numbers)):
+            for k in range(j, len(numbers)):
+                result += numbers[i] * numbers[j] * numbers[k]
+    return result
+
+def main():
+    # Generate a large list of random numbers
+    large_list = generate_large_list(100000)
+
+    # Write a large file with random numbers
+    write_large_file('large_file.txt', 100000)
+
+    # Read the large file
+    numbers_from_file = read_large_file('large_file.txt')
+
+    # Perform redundant computations
+    redundant_result = redundant_computations(numbers_from_file)
+    print(f"Redundant Computations Result: {redundant_result}")
+
+    # Perform inefficient sorting
+    sorted_numbers = inefficient_sorting(numbers_from_file)
+    print(f"Top 10 Sorted Numbers: {sorted_numbers[:10]}")
+
+    # Perform memory-intensive operations
+    memory_intensive_result = memory_intensive_operations(numbers_from_file)
+    print(f"Memory Intensive Result Sample: {memory_intensive_result[:10]}")
+
+    # Perform nested loop operations
+    nested_loops_result = nested_loops_operations(numbers_from_file)
+    print(f"Nested Loops Result: {nested_loops_result}")
+
+if __name__ == "__main__":
+    main()
