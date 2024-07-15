@@ -82,13 +82,7 @@ The following KPIs are used to measure the effectiveness of the optimizations:
 
 ## Sustainability Score Calculation
 
-The Sustainability Score is a composite metric calculated based on energy efficiency and carbon footprint, normalized against predefined maximum values. The formula used is:
-
-\[ \text{Sustainability Score} = (1 - \text{normalized energy consumption}) \times 0.5 + (1 - \text{normalized carbon footprint}) \times 0.5 \]
-
-Where:
-- Normalized energy consumption = \(\frac{\text{energy consumption}}{\text{maximum energy consumption}}\)
-- Normalized carbon footprint = \(\frac{\text{carbon footprint}}{\text{maximum carbon footprint}}\)
+The Sustainability Score is a composite metric calculated based on energy efficiency and carbon footprint, normalized against predefined maximum values.
 
 Here is the Python code to calculate the sustainability score:
 
