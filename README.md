@@ -1,4 +1,4 @@
-# RefactorEarth Documentation
+# RefactorEarth
 
 ## Executive Summary
 
@@ -14,25 +14,23 @@ RefactorEarth is a project aimed at analyzing and optimizing Python code to impr
     2. [AI-Powered Refactoring](#ai-powered-refactoring)
 5. [Key Performance Indicators (KPIs)](#key-performance-indicators-kpis)
 6. [Sustainability Score Calculation](#sustainability-score-calculation)
-7. [Results](#results)
-8. [Technical Stack](#technical-stack)
-9. [Installation and Setup](#installation-and-setup)
-10. [Usage Examples](#usage-examples)
-11. [Architecture Overview](#architecture-overview)
-12. [Performance Benchmarks](#performance-benchmarks)
-13. [Contribution Guidelines](#contribution-guidelines)
-14. [API Documentation](#api-documentation)
-15. [Frequently Asked Questions (FAQ)](#frequently-asked-questions-faq)
-16. [Case Studies](#case-studies)
-17. [Future Roadmap](#future-roadmap)
-18. [Glossary](#glossary)
-19. [Related Projects and Tools](#related-projects-and-tools)
-20. [Security Considerations](#security-considerations)
-21. [Known Limitations](#known-limitations)
-22. [Getting Help](#getting-help)
-23. [Best Practices](#best-practices)
-24. [Version History](#version-history)
-25. [References](#references)
+7. [Technical Stack](#technical-stack)
+8. [Installation and Setup](#installation-and-setup)
+9. [Usage Examples](#usage-examples)
+10. [Architecture Overview](#architecture-overview)
+11. [Contribution Guidelines](#contribution-guidelines)
+12. [API Documentation](#api-documentation)
+13. [Frequently Asked Questions (FAQ)](#frequently-asked-questions-faq)
+14. [Case Studies](#case-studies)
+15. [Future Roadmap](#future-roadmap)
+16. [Glossary](#glossary)
+17. [Related Projects and Tools](#related-projects-and-tools)
+18. [Security Considerations](#security-considerations)
+19. [Known Limitations](#known-limitations)
+20. [Getting Help](#getting-help)
+21. [Best Practices](#best-practices)
+22. [Version History](#version-history)
+23. [References](#references)
 
 ## Introduction
 
@@ -92,29 +90,38 @@ Where:
 - Normalized energy consumption = \(\frac{\text{energy consumption}}{\text{maximum energy consumption}}\)
 - Normalized carbon footprint = \(\frac{\text{carbon footprint}}{\text{maximum carbon footprint}}\)
 
-*Note*: The maximum values for normalization are determined based on benchmark datasets and historical data from various projects.
+Here is the Python code to calculate the sustainability score:
 
-## Results
+```python
+def calculate_sustainability_score(energy_consumption, carbon_footprint, max_energy_consumption, max_carbon_footprint):
+    normalized_energy = energy_consumption / max_energy_consumption
+    normalized_carbon = carbon_footprint / max_carbon_footprint
+    sustainability_score = (1 - normalized_energy) * 0.5 + (1 - normalized_carbon) * 0.5
+    return sustainability_score * 100
+```
 
-### Pre-Optimization Metrics
+### Using CodeCarbon to Measure Metrics
 
-- **Energy Consumption**: 58.57 J
-- **Carbon Footprint**: 0.009020 gCO2
-- **Sustainability Score**: 41.4/100
-- **CPU Time**: 0.00059 s
-- **Smartphone Charge**: 0.00128%
-- **LED Bulb Time**: 0.00200 s
+CodeCarbon is used to measure energy consumption and carbon footprint. Here is how you can use CodeCarbon to obtain these metrics:
 
-### Post-Optimization Metrics
+```python
+from codecarbon import EmissionsTracker
 
-- **Energy Consumption**: 20.00 J (-65.9%)
-- **Carbon Footprint**: 0.003080 gCO2 (-65.9%)
-- **Sustainability Score**: 80.0/100 (+93.2%)
-- **CPU Time**: 0.00020 s (-66.1%)
-- **Smartphone Charge**: 0.00044% (-65.6%)
-- **LED Bulb Time**: Proportional decrease expected
+tracker = EmissionsTracker()
+tracker.start()
 
-These metrics highlight significant improvements in energy efficiency and sustainability. However, results can vary based on the complexity and initial efficiency of the codebase.
+# Place the code you want to measure here
+# ...
+
+tracker.stop()
+
+emissions_data = tracker.final_emissions_data
+energy_consumed = emissions_data.energy_consumed  # in kWh
+carbon_emissions = emissions_data.emissions  # in kgCO2
+
+# Convert energy to joules (1 kWh = 3.6e6 J)
+energy_consumed_joules = energy_consumed * 3.6e6
+```
 
 ## Technical Stack
 
@@ -221,12 +228,12 @@ python refactor.py --repo_url <repository_url> --github_token <your_github_token
 
 ### Command-Line Usage
 
-To
-
- analyze and optimize a repository, use the following command:
+To analyze and optimize a repository, use the following command:
 
 ```sh
-python refactor.py --repo_url <repository_url> --github_token <your_github_token>
+python
+
+ refactor.py --repo_url <repository_url> --github_token <your_github_token>
 ```
 
 ### API Usage
@@ -331,42 +338,11 @@ The architecture of RefactorEarth involves several components, including:
 - **Optimization Engine**: Applying the model to suggest and implement code optimizations.
 - **Metrics Evaluation**: Re-evaluating the code using CodeCarbon after optimization.
 
+
 ### Integration Points
 
 - **GitHub API**: For fetching repository data.
 - **CodeCarbon**: For tracking energy consumption and carbon footprint.
-
-## Performance Benchmarks
-
-### Detailed Benchmarks
-
-#### Energy Consumption Comparison
-
-| Metric               | Before Optimization | After Optimization | Reduction |
-|----------------------|---------------------|--------------------|-----------|
-| Energy Consumption   | 58.57 J             | 20.00 J            | -65.9%    |
-| Carbon Footprint     | 0.009020 gCO2       | 0.003080 gCO2      | -65.9%    |
-| Sustainability Score | 41.4/100            | 80.0/100           | +93.2%    |
-| CPU Time             | 0.00059 s           | 0.00020 s          | -66.1%    |
-| Smartphone Charge    | 0.00128%            | 0.00044%           | -65.6%    |
-
-### Comparisons
-
-#### Manual Optimization
-
-- **Energy Consumption**: 30% improvement
-- **Carbon Footprint**: 30% improvement
-- **Sustainability Score**: 50% improvement
-- **CPU Time**: 25% improvement
-
-#### Similar Tools
-
-- **Energy Consumption**: 40% improvement
-- **Carbon Footprint**: 40% improvement
-- **Sustainability Score**: 60% improvement
-- **CPU Time**: 35% improvement
-
-*Note*: The comparisons with manual optimization and similar tools are based on benchmark data and may vary depending on specific project conditions.
 
 ## Contribution Guidelines
 
@@ -506,11 +482,6 @@ file_path = 'data.csv'
 result = process_data(file_path)
 ```
 
-- **Energy Consumption**: 100 J
-- **Carbon Footprint**: 0.015 gCO2
-- **Sustainability Score**: 40/100
-- **CPU Time**: 0.0012 s
-
 #### After Optimization
 
 **Optimized Code:**
@@ -526,15 +497,6 @@ def process_data(file_path):
 file_path = 'data.csv'
 result = process_data(file_path)
 ```
-
-- **Energy Consumption**: 35 J
-- **Carbon Footprint**: 0.005 gCO2
-- **Sustainability Score**: 85/100
-- **CPU Time**: 0.0004 s
-
-#### Summary
-
-The optimization reduced energy consumption by 65%, carbon footprint by 66.7%, and CPU time by 66.7%, significantly enhancing the sustainability score. However, these results may vary with more complex data processing tasks.
 
 ### Project B: Machine Learning Model Training
 
@@ -554,9 +516,7 @@ def train_model(data, labels):
     model = tf.keras.models.Sequential([
         tf.keras.layers.Dense(128, activation='relu'),
         tf.keras.layers.Dense(64, activation='relu'),
-        tf.keras.layers.Dense(10
-
-, activation='softmax')
+        tf.keras.layers.Dense(10, activation='softmax')
     ])
     model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
     model.fit(data, labels, epochs=50)
@@ -566,11 +526,6 @@ data = np.random.rand(1000, 20)
 labels = np.random.randint(10, size=1000)
 model = train_model(data, labels)
 ```
-
-- **Energy Consumption**: 200 J
-- **Carbon Footprint**: 0.03 gCO2
-- **Sustainability Score**: 35/100
-- **CPU Time**: 0.0025 s
 
 #### After Optimization
 
@@ -594,15 +549,6 @@ data = np.random.rand(1000, 20)
 labels = np.random.randint(10, size=1000)
 model = train_model(data, labels)
 ```
-
-- **Energy Consumption**: 70 J
-- **Carbon Footprint**: 0.01 gCO2
-- **Sustainability Score**: 80/100
-- **CPU Time**: 0.0008 s
-
-#### Summary
-
-The optimization led to a 65% reduction in energy consumption and carbon footprint, improving the sustainability score significantly. These results are promising, but real-world applications may present additional challenges.
 
 ## Future Roadmap
 
@@ -643,7 +589,9 @@ The optimization led to a 65% reduction in energy consumption and carbon footpri
 
 ### Handling Sensitive Data
 
-- RefactorEarth does not store sensitive data.
+- RefactorEarth does not store sensitive data
+
+.
 - All data processing occurs locally on the user's machine.
 
 ### Security Best Practices for Users
@@ -669,7 +617,6 @@ The optimization led to a 65% reduction in energy consumption and carbon footpri
 
 - **Discord Channel**: Join the discussion on our Discord channel for community support and interaction.
 
-
 ## Best Practices
 
 - **Integrate RefactorEarth into CI/CD Pipelines**: Automate the optimization process for continuous improvement.
@@ -685,3 +632,96 @@ The optimization led to a 65% reduction in energy consumption and carbon footpri
 
 1. **CodeCarbon**: CodeCarbon is a tool that estimates the amount of carbon dioxide (CO2) produced by the electricity required to run computer programs. [CodeCarbon Documentation](https://codecarbon.io/documentation)
 2. **Microsoft's CodeBERT**: CodeBERT is a pre-trained model for programming language understanding and generation, developed by Microsoft. [CodeBERT Research Paper](https://arxiv.org/abs/2002.08155)
+
+## Repository Structure
+
+Here is an overview of the important files and directories in the RefactorEarth repository:
+
+- `refactor.py`: Main script for running the optimization process.
+- `requirements.txt`: List of dependencies required to run the project.
+- `README.md`: Project documentation.
+- `config/`: Directory containing configuration files.
+- `data/`: Directory for storing datasets and intermediate data.
+- `models/`: Directory for storing pre-trained and fine-tuned models.
+- `notebooks/`: Jupyter notebooks for exploratory data analysis and testing.
+- `scripts/`: Additional scripts for various tasks (e.g., data preprocessing).
+- `tests/`: Unit tests for the project.
+
+### Key Files
+
+1. **refactor.py**
+
+   The main script to run the optimization process on a given repository.
+
+   ```sh
+   python refactor.py --repo_url <repository_url> --github_token <your_github_token>
+   ```
+
+2. **requirements.txt**
+
+   Contains all the dependencies needed for the project. Install these using:
+
+   ```sh
+   pip install -r requirements.txt
+   ```
+
+3. **config/config.yaml**
+
+   Configuration file for setting various parameters for the optimization process.
+
+4. **models/codebert_finetuned.pth**
+
+   Fine-tuned CodeBERT model used for the optimization process.
+
+5. **scripts/preprocess.py**
+
+   Script for preprocessing data before feeding it into the model.
+
+6. **tests/test_refactor.py**
+
+   Unit tests to ensure the optimization process works correctly.
+
+### Using the Repository
+
+1. **Clone the Repository**
+
+   ```sh
+   git clone https://github.com/yourusername/refactor-earth.git
+   cd refactor-earth
+   ```
+
+2. **Install Dependencies**
+
+   ```sh
+   pip install -r requirements.txt
+   ```
+
+3. **Set Up Environment Variables**
+
+   Create a `.env` file and add your GitHub token:
+
+   ```
+   GITHUB_TOKEN=your_github_token
+   ```
+
+   Load the environment variables:
+
+   ```sh
+   export $(cat .env | xargs)
+   ```
+
+4. **Run the Optimization**
+
+   ```sh
+   python refactor.py --repo_url <repository_url> --github_token <your_github_token>
+   ```
+
+5. **Run Tests**
+
+   Ensure everything is working correctly by running the tests:
+
+   ```sh
+   pytest tests/
+   ```
+
+By following these instructions, users can effectively use RefactorEarth to analyze and optimize their Python code for better efficiency and sustainability.
