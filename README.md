@@ -331,14 +331,6 @@ The architecture of RefactorEarth involves several components, including:
 - **Optimization Engine**: Applying the model to suggest and implement code optimizations.
 - **Metrics Evaluation**: Re-evaluating the code using CodeCarbon after optimization.
 
-### Data Flow Diagram
-
-1. **Clone Repository**: Retrieve the target repository from GitHub.
-2. **Initial Metrics Calculation**: Measure the energy consumption and carbon footprint using CodeCarbon.
-3. **Model Application**: Apply the fine-tuned CodeBERT model to suggest code improvements.
-4. **Code Refactoring**: Implement suggested optimizations.
-5. **Re-evaluation**: Measure the post-optimization metrics using CodeCarbon.
-
 ### Integration Points
 
 - **GitHub API**: For fetching repository data.
