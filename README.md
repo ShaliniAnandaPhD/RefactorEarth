@@ -35,37 +35,52 @@ RefactorEarth is a project aimed at analyzing and optimizing Python code to impr
 
 # RefactorEarth Project Overview
 
-<pre>
-+------------------+
-|   RefactorEarth  |
-+------------------+
-         |
-   +-----+-----+
-   |     |     |
-   v     v     v
-+------+ +------+ +------+
-| Repo | |  AI  | |Metrics
-|Analysis Refactor Eval |
-+------+ +------+ +------+
-   |        |        |
-   v        v        v
-+------+ +------+ +------+
-|GitHub| |Code  | |Energy|
-| API  | |BERT  | |Usage |
-+------+ +------+ +------+
-   |        |        |
-   v        v        v
-+------+ +------+ +------+
-|Code  | |Optimi| |Carbon|
-|Carbon| |zation| |Foot  |
-+------+ +------+ +------+
-         |
-         v
-    +-----------+
-    | Optimized |
-    |   Code    |
-    +-----------+
-</pre>
+<div style="font-family: Arial, sans-serif; font-size: 14px; line-height: 1.4; max-width: 800px; margin: 0 auto;">
+  <div style="background-color: #4a86e8; color: white; padding: 10px; text-align: center; font-weight: bold;">RefactorEarth</div>
+  
+  <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+    <tr>
+      <td style="width: 33%; vertical-align: top; padding: 10px; border: 1px solid #ccc;">
+        <div style="background-color: #6aa84f; color: white; padding: 5px; text-align: center; font-weight: bold;">Repository Analysis</div>
+        <ul style="list-style-type: none; padding-left: 0;">
+          <li>• Clone Repository</li>
+          <li>• Extract Python Files</li>
+          <li>• Initial Metrics Calculation</li>
+        </ul>
+        <div style="background-color: #cfe2f3; padding: 5px; margin-top: 10px;">
+          <strong>Tools:</strong> GitHub API, CodeCarbon
+        </div>
+      </td>
+      <td style="width: 33%; vertical-align: top; padding: 10px; border: 1px solid #ccc;">
+        <div style="background-color: #e69138; color: white; padding: 5px; text-align: center; font-weight: bold;">AI-Powered Refactoring</div>
+        <ul style="list-style-type: none; padding-left: 0;">
+          <li>• CodeBERT Model</li>
+          <li>• Fine-tuning</li>
+          <li>• Optimization Engine</li>
+        </ul>
+        <div style="background-color: #fff2cc; padding: 5px; margin-top: 10px;">
+          <strong>Output:</strong> Optimized Code
+        </div>
+      </td>
+      <td style="width: 33%; vertical-align: top; padding: 10px; border: 1px solid #ccc;">
+        <div style="background-color: #8e7cc3; color: white; padding: 5px; text-align: center; font-weight: bold;">Metrics Evaluation</div>
+        <ul style="list-style-type: none; padding-left: 0;">
+          <li>• Energy Consumption</li>
+          <li>• Carbon Footprint</li>
+          <li>• Sustainability Score</li>
+        </ul>
+        <div style="background-color: #d9d2e9; padding: 5px; margin-top: 10px;">
+          <strong>Tool:</strong> CodeCarbon
+        </div>
+      </td>
+    </tr>
+  </table>
+  
+  <div style="background-color: #f3f3f3; border: 1px solid #ccc; padding: 10px; margin-top: 10px; text-align: center;">
+    <strong>Input:</strong> User's GitHub Repository &nbsp;&nbsp;&nbsp; <strong>Output:</strong> Optimization Results
+  </div>
+</div>
+
 
 
 
