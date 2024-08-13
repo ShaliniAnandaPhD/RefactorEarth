@@ -35,35 +35,39 @@ RefactorEarth is a project aimed at analyzing and optimizing Python code to impr
 
 # RefactorEarth Project Overview
 
+# RefactorEarth Project Overview
+
+<pre>
 +------------------+
 |   RefactorEarth  |
 +------------------+
-|
-+-----+-----+
-|     |     |
-v     v     v
+         |
+   +-----+-----+
+   |     |     |
+   v     v     v
 +------+ +------+ +------+
 | Repo | |  AI  | |Metrics
 |Analysis Refactor Eval |
 +------+ +------+ +------+
-|        |        |
-v        v        v
+   |        |        |
+   v        v        v
 +------+ +------+ +------+
 |GitHub| |Code  | |Energy|
 | API  | |BERT  | |Usage |
 +------+ +------+ +------+
-|        |        |
-v        v        v
+   |        |        |
+   v        v        v
 +------+ +------+ +------+
 |Code  | |Optimi| |Carbon|
 |Carbon| |zation| |Foot  |
 +------+ +------+ +------+
-|
-v
-+-----------+
-| Optimized |
-|   Code    |
-+-----------+
+         |
+         v
+    +-----------+
+    | Optimized |
+    |   Code    |
+    +-----------+
+</pre>
 
 
 
