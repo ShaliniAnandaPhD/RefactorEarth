@@ -56,6 +56,33 @@ The primary objective of RefactorEarth is to optimize Python code for reduced en
 
 ## Methodology
 
+graph TD
+    A[RefactorEarth] --> B[Repository Analysis]
+    A --> C[AI-Powered Refactoring]
+    A --> D[Metrics Evaluation]
+
+    B --> B1[Clone Repository]
+    B --> B2[Extract Python Files]
+    B --> B3[Initial Metrics Calculation]
+
+    C --> C1[CodeBERT Model]
+    C --> C2[Fine-tuning]
+    C --> C3[Optimization Engine]
+
+    D --> D1[Energy Consumption]
+    D --> D2[Carbon Footprint]
+    D --> D3[Sustainability Score]
+
+    E[GitHub API] --> B
+    F[CodeCarbon] --> B3
+    F --> D
+
+    C3 --> G[Optimized Code]
+    G --> D
+
+    H[User Input] --> A
+    A --> I[Optimization Results]
+
 ### Repository Analysis
 
 1. **Clone Target Repository**: Identify and clone the target repository containing Python files.
