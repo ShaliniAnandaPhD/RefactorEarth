@@ -32,6 +32,38 @@ RefactorEarth is a project aimed at analyzing and optimizing Python code to impr
 22. [Version History](#version-history)
 23. [References](#references)
 
+
+graph TD
+    A[RefactorEarth] --> B[Repository Analysis]
+    A --> C[AI-Powered Refactoring]
+    A --> D[Metrics Evaluation]
+
+    B --> B1[Clone Repository]
+    B --> B2[Extract Python Files]
+    B --> B3[Initial Metrics Calculation]
+
+    C --> C1[CodeBERT Model]
+    C --> C2[Fine-tuning]
+    C --> C3[Optimization Engine]
+
+    D --> D1[Energy Consumption]
+    D --> D2[Carbon Footprint]
+    D --> D3[Sustainability Score]
+
+    E[GitHub API] --> B
+    F[CodeCarbon] --> B3
+    F --> D
+
+    C3 --> G[Optimized Code]
+    G --> D
+
+    H[User Input] --> A
+    A --> I[Optimization Results]
+
+
+
+
+
 ## Introduction
 
 RefactorEarth is designed to analyze and improve the efficiency of Python code by identifying memory-intensive operations, redundant computations, and suboptimal data structures. By leveraging advanced machine learning models and sustainability tracking tools like CodeCarbon, RefactorEarth aims to assist developers in writing more sustainable and performant code.
