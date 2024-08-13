@@ -56,6 +56,9 @@ The primary objective of RefactorEarth is to optimize Python code for reduced en
 
 ## Methodology
 
+# RefactorEarth Project Overview
+
+```mermaid
 graph TD
     A[RefactorEarth] --> B[Repository Analysis]
     A --> C[AI-Powered Refactoring]
