@@ -35,8 +35,6 @@ RefactorEarth is a project aimed at analyzing and optimizing Python code to impr
 
 # RefactorEarth Project Overview
 
-# RefactorEarth Project Overview
-
 <pre>
 +------------------+
 |   RefactorEarth  |
