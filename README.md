@@ -588,18 +588,6 @@ model = train_model(data, labels)
 .
 - All data processing occurs locally on the user's machine.
 
-### Security Best Practices for Users
-
-- Regularly update dependencies to mitigate vulnerabilities.
-- Use secure methods for storing and accessing GitHub tokens.
-
-### Vulnerability Reporting Process
-
-- Report security vulnerabilities via email to security@refactorearth.com.
-
-### Frequency of Security Audits
-
-- Security audits are performed quarterly to ensure the system remains secure against new vulnerabilities.
 
 ## Known Limitations
 
