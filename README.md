@@ -33,98 +33,37 @@ RefactorEarth is a project aimed at analyzing and optimizing Python code to impr
 23. [References](#references)
 
 
-+-------------------+
-|   RefactorEarth   |
-+-------------------+
-          |
-          |
-          v
-+-------------------+
-|    Repository     |
-|     Analysis      |
-+-------------------+
-    |           |
-    |           v
-    |    +--------------+
-    |    | GitHub API   |
-    |    +--------------+
-    |           |
-    |           v
-    |    +--------------+
-    |    | Clone Repo   |
-    |    +--------------+
-    |           |
-    |           v
-    |    +--------------+
-    |    | Extract Files|
-    |    +--------------+
-    |           |
-    |           v
-    |    +--------------+
-    |    |Initial Metrics
-    |    +--------------+
-    |           ^
-    |           |
-    |    +--------------+
-    |    |  CodeCarbon  |
-    |    +--------------+
-    |
-    v
-+-------------------+
-|    AI-Powered     |
-|    Refactoring    |
-+-------------------+
-    |           |
-    |           v
-    |    +--------------+
-    |    | CodeBERT     |
-    |    +--------------+
-    |           |
-    |           v
-    |    +--------------+
-    |    | Fine-tuning  |
-    |    +--------------+
-    |           |
-    |           v
-    |    +--------------+
-    |    | Optimization |
-    |    +--------------+
-    |           |
-    |           v
-    |    +--------------+
-    |    |Optimized Code|
-    |    +--------------+
-    |           |
-    v           |
-+-------------------+
-|     Metrics       |
-|    Evaluation     |
-+-------------------+
-    |           |
-    |           v
-    |    +--------------+
-    |    |    Energy    |
-    |    | Consumption  |
-    |    +--------------+
-    |           |
-    |           v
-    |    +--------------+
-    |    |   Carbon     |
-    |    |  Footprint   |
-    |    +--------------+
-    |           |
-    |           v
-    |    +--------------+
-    |    |Sustainability|
-    |    |    Score     |
-    |    +--------------+
-    |
-    v
-+-------------------+
-|   Optimization    |
-|     Results       |
-+-------------------+
+# RefactorEarth Project Overview
 
++------------------+
+|   RefactorEarth  |
++------------------+
+|
++-----+-----+
+|     |     |
+v     v     v
++------+ +------+ +------+
+| Repo | |  AI  | |Metrics
+|Analysis Refactor Eval |
++------+ +------+ +------+
+|        |        |
+v        v        v
++------+ +------+ +------+
+|GitHub| |Code  | |Energy|
+| API  | |BERT  | |Usage |
++------+ +------+ +------+
+|        |        |
+v        v        v
++------+ +------+ +------+
+|Code  | |Optimi| |Carbon|
+|Carbon| |zation| |Foot  |
++------+ +------+ +------+
+|
+v
++-----------+
+| Optimized |
+|   Code    |
++-----------+
 
 
 
