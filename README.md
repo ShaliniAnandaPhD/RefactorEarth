@@ -204,17 +204,6 @@ tokenizer = RobertaTokenizer.from_pretrained('models/codebert_finetuned')
 
 RefactorEarth is built with Python in mind, but with some tweaks, you can adapt it for other programming languages. Modify the tokenizer and dataset preparation steps to handle different languages.
 
-## Project Structure
-
-Here’s a quick rundown of the project structure:
-
-- **`config/`:** Configuration files
-- **`data/`:** Datasets and intermediate data
-- **`models/`:** Pre-trained and fine-tuned models
-- **`notebooks/`:** Jupyter notebooks for data analysis and model fine-tuning
-- **`scripts/`:** Additional scripts for tasks like data preprocessing
-- **`tests/`:** Unit tests
-
 ## Contributing
 
 We’re excited to see what you can bring to RefactorEarth! Here’s how you can contribute:
