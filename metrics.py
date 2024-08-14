@@ -16,13 +16,13 @@ from memory_profiler import memory_usage, profile
 from codecarbon import EmissionsTracker
 from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 
-# Load fine-tuned CodeBERT model
+# Load our fine-tuned CodeBERT model for generating and refactoring code
 model_name = "finetunecodebert"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForCausalLM.from_pretrained(model_name)
 code_generator = pipeline("text-generation", model=model, tokenizer=tokenizer)
 
-# Set up logging
+# Set up logging to keep track of our app’s activities
 logging.basicConfig(filename='sustainability_dashboard.log', level=logging.INFO, format='%(asctime)s %(levelname)s:%(message)s')
 
 # Function to track emissions with CodeCarbon
@@ -35,7 +35,7 @@ def track_emissions(func):
         return result, emissions
     return wrapper
 
-# Function-level tracking with logging
+# Function to track and log function details like memory usage, time, and emissions
 def function_tracker(func):
     def wrapper(*args, **kwargs):
         start_time = time.time()
@@ -60,10 +60,10 @@ def main():
     st.set_page_config(layout="wide")
     st.title("Enhanced Code Sustainability Dashboard with CodeBERT")
 
-    # Sidebar configuration
+    # Set up the sidebar for user inputs and actions
     configure_sidebar()
 
-    # Main Dashboard Sections
+    # Display the main sections of the dashboard
     display_primary_metrics()
     display_code_analysis()
     display_performance_metrics()
@@ -116,7 +116,6 @@ def configure_sidebar():
     if st.sidebar.button("Download Logs"):
         download_logs()
 
-
 def analyze_code(code):
     try:
         tree = ast.parse(code)
@@ -156,6 +155,6 @@ def get_optimization_suggestions(code):
     suggestions = code_generator(prompt, max_length=1000, num_return_sequences=1)[0]['generated_text']
     return suggestions.split('\n') if suggestions else ["No suggestions available"]
 
-
 if __name__ == "__main__":
     main()
+
