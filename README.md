@@ -399,24 +399,5 @@ Hackathon winner at AI Engineer World Fair Hackathon: Transforming code, one fun
 
 - [More Information](https://www.notion.so/shalini-ananda-phd/Refactor-Earth-A-Comprehensive-Tool-for-Sustainable-and-Efficient-Coding-b921467f3e0d4a1daaa8d0af468a701b)
 
----
-
-## **Resources**
-- **Readme**
-- **License**: MIT license
-
----
-
-**Languages:**
-- Python: 71.0%
-- Jupyter Notebook: 29.0%
-
----
-
-**Suggested Workflows Based on Your Tech Stack:**
-- **Python Package:** Create and test a Python package on multiple Python versions.
-- **Python Application:** Create and test a Python application.
-- **Django:** Build and Test a Django Project.
-
 
 
