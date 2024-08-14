@@ -172,7 +172,151 @@ After you’ve fine-tuned your CodeBERT model, it’s time to put it to work! Th
 
 ### The Workflow
 
+Certainly! Below is the workflow, incorporating the `refactor.py` script you provided. This script will handle cloning a repository, calculating initial energy metrics, optimizing the code, and then measuring the impact of those optimizations.
 
+### Workflow Using `refactor.py` Script in RefactorEarth
+
+---
+
+### Step 1: Clone the GitHub Repository
+
+The first step is to clone the target GitHub repository into a local directory. This repository contains the code that you want to analyze and optimize.
+
+**How it's done in `refactor.py`:**
+
+```python
+def clone_repository(repo_url, target_dir):
+    """
+    Clone the target GitHub repository into a specified directory.
+    """
+    print(f"Cloning repository from {repo_url} into {target_dir}...")
+    subprocess.run(['git', 'clone', repo_url, target_dir], check=True)
+    print("Repository cloned successfully.")
+```
+
+**Example Workflow:**
+
+- **Input:** The GitHub repository URL and the target directory where the repo should be cloned.
+- **Output:** A local copy of the GitHub repository.
+
+### Step 2: Calculate Initial Metrics
+
+Once the repository is cloned, the script calculates the initial metrics such as energy consumption and carbon emissions. This is done by running a specific Python script from the cloned repository.
+
+**How it's done in `refactor.py`:**
+
+```python
+def calculate_initial_metrics(directory, script_name='example_script.py'):
+    """
+    Calculate initial energy consumption and sustainability metrics for the code.
+    """
+    tracker = EmissionsTracker()
+
+    script_path = os.path.join(directory, script_name)
+    if not os.path.isfile(script_path):
+        raise FileNotFoundError(f"The script {script_name} was not found in the directory {directory}.")
+
+    print(f"Calculating initial metrics for the script {script_name}...")
+    tracker.start()  # Start the emissions tracker
+
+    subprocess.run(['python', script_path], check=True)
+
+    tracker.stop()  # Stop the emissions tracker
+
+    emissions_data = tracker.final_emissions_data
+    metrics = {
+        'energy_consumed': emissions_data.energy_consumed,  # in kWh
+        'carbon_emissions': emissions_data.emissions  # in kgCO2
+    }
+    print("Initial metrics calculated successfully.")
+    return metrics
+```
+
+**Example Workflow:**
+
+- **Input:** The directory where the repo is cloned and the name of the script to run.
+- **Output:** A dictionary containing the initial energy and carbon metrics.
+
+### Step 3: Optimize the Code
+
+After gathering initial metrics, the script uses an AI model (like a fine-tuned version of CodeBERT) to optimize the code in the repository.
+
+**How it's done in `refactor.py`:**
+
+```python
+def optimize_code(repo_dir, github_token):
+    """
+    Optimize the code in the given directory using an AI model like CodeBERT.
+    """
+    print("Starting the code optimization process...")
+    refactor = RefactorEarth(github_token=github_token)
+
+    # Run the optimization process using the AI model
+    results = refactor.optimize_repo(repo_dir)
+    print("Code optimization completed successfully.")
+    return results
+```
+
+**Example Workflow:**
+
+- **Input:** The directory with the cloned repository and a GitHub token for accessing the repo.
+- **Output:** A dictionary with the optimization results, which may include updated energy consumption, sustainability scores, or other relevant metrics.
+
+### Step 4: Measure the Impact of Optimizations
+
+Finally, after the code has been optimized, you can measure the impact by rerunning the script and comparing the new metrics to the initial ones. The `calculate_initial_metrics` function can be reused here with the updated code to see how the optimizations have improved performance and sustainability.
+
+### Example Workflow Implementation
+
+To tie everything together, you would run the script as follows:
+
+```python
+def main(repo_url, github_token, script_name='example_script.py'):
+    """
+    Main function to orchestrate the cloning, metric calculation, and optimization processes.
+    """
+    # Derive the repository name from the URL and set the target directory
+    repo_name = repo_url.split('/')[-1].replace('.git', '')
+    target_dir = os.path.join(os.getcwd(), repo_name)
+
+    try:
+        # Step 1: Clone the repository
+        clone_repository(repo_url, target_dir)
+
+        # Step 2: Calculate initial metrics
+        initial_metrics = calculate_initial_metrics(target_dir, script_name)
+        print(f"Initial Metrics: {initial_metrics}")
+
+        # Step 3: Optimize the code
+        optimization_results = optimize_code(target_dir, github_token)
+        print(f"Optimization Results: {optimization_results}")
+
+    except Exception as e:
+        print(f"An error occurred in the process: {e}")
+
+if __name__ == "__main__":
+    # Example usage:
+    # Replace with actual repo URL and GitHub token
+    REPO_URL = "https://github.com/user/repo.git"
+    GITHUB_TOKEN = "your_github_token"
+    
+    main(REPO_URL, GITHUB_TOKEN)
+```
+
+### Running the Script
+
+- **Execution:** Run the `refactor.py` script from the command line or your Python environment:
+  ```bash
+  python refactor.py
+  ```
+
+- **Outputs:** The script will:
+  1. Clone the specified GitHub repository.
+  2. Calculate the initial energy metrics by executing a script in the repository.
+  3. Optimize the code using the AI model.
+  4. Output the initial metrics and the results of the optimization.
+
+This workflow automates the process of analyzing, optimizing, and measuring code, making it easy to see the impact of your optimizations in terms of energy efficiency and sustainability.
 
 ## Advanced Tips & Tricks
 
