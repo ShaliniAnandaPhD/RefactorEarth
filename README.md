@@ -262,9 +262,6 @@ Here’s what we’re working on:
 - **New Features:** Support for more programming languages and additional sustainability tracking tools.
 - **Long-Term Goals:** Build a community-driven database of optimized code patterns and create educational resources on sustainable coding.
 
-## Need Help?
-
-If you’re stuck or just want to chat, join our [Discord Channel](#). You can also check out our documentation for more detailed guidance.
 
 ## References
 
