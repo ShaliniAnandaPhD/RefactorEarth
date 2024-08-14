@@ -245,15 +245,6 @@ Here are some common questions about RefactorEarth:
 - **Do I need a GitHub token?**
   - Yes, you’ll need a GitHub token to access repositories.
 
-## Real-World Examples
-
-### Case Study: Data Processing Pipeline
-
-We optimized an open-source data processing library using RefactorEarth, cutting down on energy usage and boosting performance.
-
-### Case Study: Machine Learning Model Training
-
-RefactorEarth helped us reduce the environmental impact of a machine learning model training pipeline by streamlining the process.
 
 ## What’s Next?
 
