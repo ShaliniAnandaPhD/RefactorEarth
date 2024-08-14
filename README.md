@@ -358,9 +358,7 @@ We’re excited to see what you can bring to RefactorEarth! Here’s how you can
 If RefactorEarth provides any APIs, here’s where you’ll find the details. Some of the key endpoints include:
 
 - **/optimize:** Optimizes a given repository.
-- **
-
-/metrics:** Retrieves sustainability metrics.
+- **/metrics:** Retrieves sustainability metrics.
 
 ---
 
