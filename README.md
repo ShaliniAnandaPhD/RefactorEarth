@@ -170,13 +170,9 @@ trainer.save_model('./models/codebert_finetuned')
 
 After you’ve fine-tuned your CodeBERT model, it’s time to put it to work! The `refactor.py` script will automatically load your fine-tuned model and use it to optimize the code in your repository.
 
-### The Workflow
-
-Certainly! Below is the workflow, incorporating the `refactor.py` script you provided. This script will handle cloning a repository, calculating initial energy metrics, optimizing the code, and then measuring the impact of those optimizations.
 
 ### Workflow Using `refactor.py` Script in RefactorEarth
 
----
 
 ### Step 1: Clone the GitHub Repository
 
