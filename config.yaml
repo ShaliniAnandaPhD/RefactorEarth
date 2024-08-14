@@ -1,1 +1,53 @@
-code_directory: "path/to/RefactorEarth/RefactorEarth-main/Code Samples"
+# config.yaml
+# Configuration file for RefactorEarth optimization process
+
+# GitHub Repository Settings
+repository:
+  url: "https://github.com/user/repo.git"  # Default URL of the repository to clone
+  branch: "main"  # Branch to checkout after cloning
+  local_directory: "./cloned_repo"  # Directory to clone the repository into
+
+# Code Execution Settings
+execution:
+  script_name: "example_script.py"  # Name of the script to run for initial metrics calculation
+  timeout: 300  # Maximum time (in seconds) to allow the script to run
+
+# Emissions Tracking Settings
+emissions_tracker:
+  output_dir: "./emissions_reports"  # Directory to save emissions reports
+  measure_power_consumption: true  # Flag to measure power consumption (if supported by the system)
+  region: "us-east"  # Region for carbon intensity data (affects carbon footprint calculations)
+
+# AI Optimization Settings
+optimization:
+  model_name: "codebert_finetuned"  # Name of the AI model to use for code optimization
+  fine_tune: false  # Whether to fine-tune the model before optimizing
+  max_iterations: 10  # Maximum number of optimization iterations
+  target_metrics:
+    energy_reduction: 0.10  # Target percentage reduction in energy consumption
+    carbon_reduction: 0.10  # Target percentage reduction in carbon footprint
+
+# Logging Settings
+logging:
+  level: "INFO"  # Logging level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  log_file: "./logs/refactor_earth.log"  # File to save logs
+  console_output: true  # Whether to output logs to the console
+
+# Report Settings
+report:
+  generate_report: true  # Flag to generate a detailed report after optimization
+  report_format: "pdf"  # Format of the report: pdf, html, txt
+  report_directory: "./reports"  # Directory to save the report
+
+# Advanced Settings
+advanced:
+  use_multiprocessing: true  # Whether to use multiprocessing for faster analysis
+  max_threads: 4  # Maximum number of threads to use in multiprocessing
+
+# Example Usage (Optional)
+# You can specify example values here, which the user can modify as needed.
+example_usage:
+  github_token: "your_github_token_here"  # Replace with your GitHub token
+  repo_url: "https://github.com/user/example-repo.git"
+  script_name: "optimize_me.py"
+
