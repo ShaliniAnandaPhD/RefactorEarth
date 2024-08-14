@@ -72,69 +72,70 @@ RefactorEarth is your go-to tool for making Python code leaner and greener. Mode
 
 ## Getting Started
 
-### Prerequisites
+Here’s the updated README based on the files and structure that were found in your project:
 
-Before you begin, make sure you have the following installed:
+---
 
-- Python 3.8 or later
-- `pip` (Python package installer)
+# **RefactorEarth: A Tool for Sustainable and Efficient Coding**
 
-### Setting Things Up
+## **Setting Things Up**
 
-1. **Clone the Repository:**
+### **Clone the Repository:**
 
-   Start by cloning the RefactorEarth repository to your local machine:
+Start by cloning the RefactorEarth repository to your local machine:
 
-   ```bash
-   git clone https://github.com/yourusername/refactor-earth.git
-   cd refactor-earth
-   ```
+```bash
+git clone https://github.com/yourusername/refactor-earth.git
+cd refactor-earth
+```
 
-2. **Install the Necessary Packages:**
+### **Install the Necessary Packages:**
 
-   Next, install all the required dependencies:
+Next, install all the required dependencies:
 
-   ```bash
-   pip install -r requirements.txt
-   ```
+```bash
+pip install -r requirements.txt
+```
 
-3. **Set Up Your Environment:**
+### **Set Up Your Environment:**
 
-   You’ll need to create a `.env` file in the root directory and add your GitHub token:
+You’ll need to create a `.env` file in the root directory and add your GitHub token:
 
-   ```bash
-   GITHUB_TOKEN=your_github_token
-   ```
+```plaintext
+GITHUB_TOKEN=your_github_token
+```
 
-   Then, load the environment variables:
+Then, load the environment variables:
 
-   ```bash
-   export $(cat .env | xargs)
-   ```
+```bash
+export $(cat .env | xargs)
+```
 
-And that’s it! You’re ready to go.
+And that’s it! You’re ready to start optimizing your code with RefactorEarth.
 
-## Fine-Tuning CodeBERT
+---
 
-### Why Fine-Tune?
+## **Fine-Tuning CodeBERT**
+
+### **Why Fine-Tune?**
 
 Fine-tuning the CodeBERT model allows you to customize it for your specific needs, making it even more effective at optimizing your code.
 
-### How to Fine-Tune
+### **How to Fine-Tune**
 
-1. **Prepare Your Dataset:**
+#### **Prepare Your Dataset:**
 
-   Your dataset should be in a format like CSV, with columns for the code (`input_text`) and any labels or descriptions (`output_text`).
+Your dataset should be in a format like CSV, with columns for the code (`input_text`) and any labels or descriptions (`output_text`).
 
-2. **Use Our Jupyter Notebook:**
+#### **Use the Provided Jupyter Notebook:**
 
-   We’ve provided a Jupyter notebook (`notebooks/fine_tune_codebert.ipynb`) that guides you through the entire process, from loading your dataset to training the model and saving it.
+We’ve provided a Jupyter notebook (`Fine_Tuning_Codebert.ipynb`) that guides you through the entire process, from loading your dataset to training the model and saving it.
 
-3. **Save the Model:**
+#### **Save the Model:**
 
-   Once you’ve fine-tuned the model, it will be saved as `models/codebert_finetuned.pth`. This is the model you’ll use in the optimization process.
+Once you’ve fine-tuned the model, it will be saved as `models/codebert_finetuned.pth`. This is the model you’ll use in the optimization process.
 
-### Here’s What the Process Looks Like:
+### **Here’s What the Process Looks Like:**
 
 ```python
 # Load necessary libraries
@@ -164,17 +165,19 @@ trainer.train()
 trainer.save_model('./models/codebert_finetuned')
 ```
 
-## How It All Works Together
+---
 
-### Integrating the Fine-Tuned Model
+## **How It All Works Together**
+
+### **Integrating the Fine-Tuned Model**
 
 After you’ve fine-tuned your CodeBERT model, it’s time to put it to work! The `refactor.py` script will automatically load your fine-tuned model and use it to optimize the code in your repository.
 
+---
 
-### Workflow Using `refactor.py` Script in RefactorEarth
+## **Workflow Using `refactor.py` Script in RefactorEarth**
 
-
-### Step 1: Clone the GitHub Repository
+### **Step 1: Clone the GitHub Repository**
 
 The first step is to clone the target GitHub repository into a local directory. This repository contains the code that you want to analyze and optimize.
 
@@ -195,7 +198,7 @@ def clone_repository(repo_url, target_dir):
 - **Input:** The GitHub repository URL and the target directory where the repo should be cloned.
 - **Output:** A local copy of the GitHub repository.
 
-### Step 2: Calculate Initial Metrics
+### **Step 2: Calculate Initial Metrics**
 
 Once the repository is cloned, the script calculates the initial metrics such as energy consumption and carbon emissions. This is done by running a specific Python script from the cloned repository.
 
@@ -233,7 +236,7 @@ def calculate_initial_metrics(directory, script_name='example_script.py'):
 - **Input:** The directory where the repo is cloned and the name of the script to run.
 - **Output:** A dictionary containing the initial energy and carbon metrics.
 
-### Step 3: Optimize the Code
+### **Step 3: Optimize the Code**
 
 After gathering initial metrics, the script uses an AI model (like a fine-tuned version of CodeBERT) to optimize the code in the repository.
 
@@ -258,11 +261,11 @@ def optimize_code(repo_dir, github_token):
 - **Input:** The directory with the cloned repository and a GitHub token for accessing the repo.
 - **Output:** A dictionary with the optimization results, which may include updated energy consumption, sustainability scores, or other relevant metrics.
 
-### Step 4: Measure the Impact of Optimizations
+### **Step 4: Measure the Impact of Optimizations**
 
 Finally, after the code has been optimized, you can measure the impact by rerunning the script and comparing the new metrics to the initial ones. The `calculate_initial_metrics` function can be reused here with the updated code to see how the optimizations have improved performance and sustainability.
 
-### Example Workflow Implementation
+### **Example Workflow Implementation**
 
 To tie everything together, you would run the script as follows:
 
@@ -299,84 +302,123 @@ if __name__ == "__main__":
     main(REPO_URL, GITHUB_TOKEN)
 ```
 
-### Running the Script
+### **Running the Script**
 
-- **Execution:** Run the `refactor.py` script from the command line or your Python environment:
-  ```bash
-  python refactor.py
-  ```
+**Execution:** Run the `refactor.py` script from the command line or your Python environment:
 
-- **Outputs:** The script will:
-  1. Clone the specified GitHub repository.
-  2. Calculate the initial energy metrics by executing a script in the repository.
-  3. Optimize the code using the AI model.
-  4. Output the initial metrics and the results of the optimization.
+```bash
+python refactor.py
+```
+
+**Outputs:** The script will:
+- Clone the specified GitHub repository.
+- Calculate the initial energy metrics by executing a script in the repository.
+- Optimize the code using the AI model.
+- Output the initial metrics and the results of the optimization.
 
 This workflow automates the process of analyzing, optimizing, and measuring code, making it easy to see the impact of your optimizations in terms of energy efficiency and sustainability.
 
-## Advanced Tips & Tricks
+---
 
-### Customize Your Fine-Tuning
+## **Advanced Tips & Tricks**
+
+### **Customize Your Fine-Tuning**
 
 - **Adjust Hyperparameters:** Play with settings like the number of epochs or batch size to get the best results.
 - **Try Different Datasets:** Fine-tune the model on various datasets to tailor it to different coding styles or programming languages.
 
-### Extend to Other Languages
+### **Extend to Other Languages**
 
 RefactorEarth is built with Python in mind, but with some tweaks, you can adapt it for other programming languages. Modify the tokenizer and dataset preparation steps to handle different languages.
 
-## Contributing
+---
+
+## **Contributing**
 
 We’re excited to see what you can bring to RefactorEarth! Here’s how you can contribute:
 
-### Code Style
-
+### **Code Style**
 - Follow PEP 8 for Python.
 - Use clear and meaningful names for variables and functions.
 
-### Testing
-
+### **Testing**
 - Write tests for any new features.
 - Make sure all tests pass before you submit a pull request.
 
-### Making a Pull Request
+### **Making a Pull Request**
+- Fork the repo and create a new branch.
+- Make your changes.
+- Commit and push your changes.
+- Open a pull request!
 
-1. Fork the repo and create a new branch.
-2. Make your changes.
-3. Commit and push your changes.
-4. Open a pull request!
+---
 
-## API Details
+## **API Details**
 
 If RefactorEarth provides any APIs, here’s where you’ll find the details. Some of the key endpoints include:
 
-- `/optimize`: Optimizes a given repository.
-- `/metrics`: Retrieves sustainability metrics.
+- **/optimize:** Optimizes a given repository.
+- **
 
-## FAQs
+/metrics:** Retrieves sustainability metrics.
+
+---
+
+## **FAQs**
 
 Here are some common questions about RefactorEarth:
 
 - **What is RefactorEarth?**
   - It’s a tool that helps you optimize Python code for better efficiency and sustainability.
-
+  
 - **How does it track energy consumption?**
   - We use CodeCarbon to measure energy consumption and carbon footprint.
-
+  
 - **Do I need a GitHub token?**
   - Yes, you’ll need a GitHub token to access repositories.
 
+---
 
-## What’s Next?
+## **What’s Next?**
 
 Here’s what we’re working on:
 
 - **New Features:** Support for more programming languages and additional sustainability tracking tools.
 - **Long-Term Goals:** Build a community-driven database of optimized code patterns and create educational resources on sustainable coding.
 
+---
 
-## References
+## **References**
 
-- [CodeCarbon Documentation](https://codecarbon.io)
+- [CodeCarbon Documentation](https://codecarbon.io/documentation/)
 - [Microsoft's CodeBERT Research Paper](https://arxiv.org/abs/2002.08155)
+
+---
+
+## **About**
+
+Hackathon winner at AI Engineer World Fair Hackathon: Transforming code, one function at a time, to reduce digital carbon footprints and create a more sustainable digital world.
+
+- [More Information](https://www.notion.so/shalini-ananda-phd/Refactor-Earth-A-Comprehensive-Tool-for-Sustainable-and-Efficient-Coding-b921467f3e0d4a1daaa8d0af468a701b)
+
+---
+
+## **Resources**
+- **Readme**
+- **License**: MIT license
+
+---
+
+**Languages:**
+- Python: 71.0%
+- Jupyter Notebook: 29.0%
+
+---
+
+**Suggested Workflows Based on Your Tech Stack:**
+- **Python Package:** Create and test a Python package on multiple Python versions.
+- **Python Application:** Create and test a Python application.
+- **Django:** Build and Test a Django Project.
+
+
 
