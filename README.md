@@ -172,26 +172,7 @@ After you’ve fine-tuned your CodeBERT model, it’s time to put it to work! Th
 
 ### The Workflow
 
-1. **Load the Model:**
-   The script loads the fine-tuned model from the `models/` directory.
 
-2. **Optimize Your Code:**
-   The model analyzes your code and suggests optimizations.
-
-3. **Measure the Impact:**
-   After applying the optimizations, the script uses CodeCarbon to measure improvements in energy consumption and sustainability.
-
-Here’s a snippet showing how the model is integrated:
-
-```python
-from transformers import RobertaTokenizer, RobertaForSequenceClassification
-
-# Load the fine-tuned CodeBERT model
-model = RobertaForSequenceClassification.from_pretrained('models/codebert_finetuned')
-tokenizer = RobertaTokenizer.from_pretrained('models/codebert_finetuned')
-
-# Use the model to optimize the code in the repository
-```
 
 ## Advanced Tips & Tricks
 
