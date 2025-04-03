@@ -386,6 +386,19 @@ Here’s what we’re working on:
 
 ---
 
+## Sponsor RefactorEarth
+
+RefactorEarth is an open-source project that I'm developing full-time. Your sponsorship helps me continue this work and build more sustainable coding tools.
+
+[❤️ Sponsor on GitHub](https://github.com/sponsors/ShaliniAnandaPhD)
+
+### Sponsorship Tiers
+- **Individual Supporters** ($5-$25/month): Get sponsor badges and acknowledgments
+- **Team & Startup** ($100-$1,500/month): Private repo access, strategy calls, and code reviews
+- **Enterprise Partners** ($2,500-$10,000/month): Custom development support, priority features, and more
+
+Looking for other ways to contribute? Check out our [contributing guidelines](CONTRIBUTING.md).
+
 ## **References**
 
 - [CodeCarbon Documentation](https://codecarbon.io/documentation/)
